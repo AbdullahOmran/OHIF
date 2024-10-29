@@ -1,5 +1,5 @@
 .loading {
-  background-color: #091731;
+  background-color: #101f10;
   height: 8px;
   border-radius: 4px;
   overflow: hidden;
@@ -8,19 +8,24 @@
 }
 
 .infinite-loading-bar {
-  animation: side2side 2s ease-in-out infinite;
+  /* animation: side2side 2s ease-in-out infinite;
   height: 100%;
   position: absolute;
   border-radius: 4px;
+  width: 50%; */
+  animation: side2side 1s ease-in-out infinite;
+  height: 100%;
+  position: absolute;
   width: 50%;
+  transform: skewX(0deg); /* Apply a skew to create the parallelogram shape */
 }
 
 @keyframes side2side {
   0%,
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%) skewX(-50deg);
   }
   50% {
-    transform: translateX(150%);
+    transform: translateX(150%) skewX(50deg);
   }
 }

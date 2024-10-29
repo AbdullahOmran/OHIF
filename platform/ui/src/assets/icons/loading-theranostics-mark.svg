@@ -1,0 +1,20 @@
+<svg width="197" height="38" viewBox="0 0 197 38" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background Circle for Viewer Lens -->
+            <circle cx="19" cy="19" r="18" fill="#8fd89a" />
+
+            <!-- Inner Circle for Lens -->
+            <circle cx="19" cy="19" r="14" fill="#45b86b" />
+
+            <!-- Lens Outline -->
+            <circle cx="19" cy="19" r="18" fill="none" stroke="#2c7d4a" stroke-width="2" />
+
+            <!-- Theranostics Molecular Structure -->
+            <circle cx="45" cy="19" r="4" fill="#8fd89a" />
+            <circle cx="60" cy="10" r="3" fill="#45b86b" />
+            <circle cx="60" cy="28" r="3" fill="#45b86b" />
+
+            <line x1="19" y1="19" x2="45" y2="19" stroke="#2c7d4a" stroke-width="1.5" />
+            <line x1="45" y1="19" x2="60" y2="10" stroke="#2c7d4a" stroke-width="1.5" />
+            <line x1="45" y1="19" x2="60" y2="28" stroke="#2c7d4a" stroke-width="1.5" />
+
+</svg>

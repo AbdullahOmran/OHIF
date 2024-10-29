@@ -90,6 +90,7 @@ import notificationsSuccess from './../../assets/icons/notifications-success.svg
 import nextArrow from './../../assets/icons/next-arrow.svg';
 import prevArrow from './../../assets/icons/prev-arrow.svg';
 import viewportStatusTracked from './../../assets/icons/viewport-status-tracked.svg';
+import loadingTheranosticsMark from './../../assets/icons/loading-theranostics-mark.svg';
 
 /** Tools */
 import toggleDicomOverlay from './../../assets/icons/tool-toggle-dicom-overlay.svg';
@@ -298,6 +299,7 @@ const ICONS = {
   'checkbox-checked': checkboxChecked,
   'checkbox-unchecked': checkboxUnchecked,
   'loading-ohif-mark': loadingOHIFMark,
+  'loading-theranostics-mark': loadingTheranosticsMark,
   'notifications-info': notificationsInfo,
   'notifications-error': notificationsError,
   'notifications-success': notificationsSuccess,

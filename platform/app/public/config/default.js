@@ -11,7 +11,7 @@ const config = {
           target: '_self',
           rel: 'noopener noreferrer',
           className: 'text-purple-600 line-through',
-          href: '/',
+          href: this.routerBasename,
         },
         React.createElement('img', {
           src: '/my-logo.svg',
