@@ -310,12 +310,12 @@ function WorkList({
           content: <TooltipClipboard>{description}</TooltipClipboard>,
           gridCol: 4,
         },
-        {
-          key: 'modality',
-          content: modalities,
-          title: modalities,
-          gridCol: 3,
-        },
+        // {
+        //   key: 'modality',
+        //   content: modalities,
+        //   title: modalities,
+        //   gridCol: 3,
+        // },
         {
           key: 'accession',
           content: <TooltipClipboard>{accession}</TooltipClipboard>,
