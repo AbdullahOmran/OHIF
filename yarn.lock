@@ -3222,6 +3222,38 @@
   dependencies:
     "@octokit/openapi-types" "^18.0.0"
 
+"@ohif/mode-basic-dev-mode@3.8.3":
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/@ohif/mode-basic-dev-mode/-/mode-basic-dev-mode-3.8.3.tgz#28642091b28bb7ac21de804f43b7e9e297d4ae36"
+  integrity sha512-cN6kmgvIgl+r0+b4Q+bGN9U+b7N7snAwV99Qv5+Oj/c8VU7WTDBFvbdyq4VT/BM/A7jB3Vm3aArp2RygIWQleA==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    i18next "^17.0.3"
+
+"@ohif/mode-longitudinal@3.8.3":
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/@ohif/mode-longitudinal/-/mode-longitudinal-3.8.3.tgz#e381f697a652f0a7678e0b40c8a22d905a884dec"
+  integrity sha512-LstXpnT1+tXFGVSdN0BsV2DZ65QtGDf9Z2XcW8K9waq1qBmPH3zHhIwx5BawvwOWx2QKx573gLKadnvaRPy9Hg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    i18next "^17.0.3"
+
+"@ohif/mode-microscopy@3.8.3":
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/@ohif/mode-microscopy/-/mode-microscopy-3.8.3.tgz#1e81fd9f1c3d15846630c73cd1c8683e21830d83"
+  integrity sha512-b9YyGWNh1e9zuBgeiat5o4uI5njQe5sfVtrNmw38LbChXmJJANVpi9Ug0t7OxowImKWoHR2YM2QH3tZp/JStoA==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    i18next "^17.0.3"
+
+"@ohif/mode-test@3.8.3":
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/@ohif/mode-test/-/mode-test-3.8.3.tgz#fc6cfcf2bd358bc9243ea5a76baea9cdef103ae5"
+  integrity sha512-+2Pyr52vE/W1LU5bmhGN7FS2W7qvx12VZgL4jRafqDCW7X4EHrCg8l9pGSKoVHMsLwLj8EzE4wFUbqcnXZ8sXA==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    i18next "^17.0.3"
+
 "@oozcitak/dom@1.15.10":
   version "1.15.10"
   resolved "https://registry.yarnpkg.com/@oozcitak/dom/-/dom-1.15.10.tgz#dca7289f2b292cff2a901ea4fbbcc0a1ab0b05c2"
