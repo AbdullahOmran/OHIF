@@ -12,7 +12,7 @@ const EmptyStudies = ({ className }) => {
   return (
     <div className={classnames('inline-flex flex-col items-center', className)}>
       <Icon
-        name="magnifier"
+        name="new-magnifier"
         className="mb-4"
       />
       <Typography

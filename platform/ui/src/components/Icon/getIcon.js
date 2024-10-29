@@ -36,6 +36,7 @@ import lock from './../../assets/icons/lock.svg';
 import logoOhifSmall from './../../assets/icons/logo-ohif-small.svg';
 import logoDarkBackGround from './../../assets/icons/ohif-logo-color-darkbg.svg';
 import magnifier from './../../assets/icons/magnifier.svg';
+import newMagnifier from './../../assets/icons/new-magnifier.svg';
 import notificationwarningDiamond from './../../assets/icons/notificationwarning-diamond.svg';
 import pencil from './../../assets/icons/pencil.svg';
 import powerOff from './../../assets/icons/power-off.svg';
@@ -268,6 +269,7 @@ const ICONS = {
   'logo-ohif-small': logoOhifSmall,
   'logo-dark-background': logoDarkBackGround,
   magnifier: magnifier,
+  'new-magnifier': newMagnifier,
   exclamation: exclamation,
   'notificationwarning-diamond': notificationwarningDiamond,
   pencil: pencil,

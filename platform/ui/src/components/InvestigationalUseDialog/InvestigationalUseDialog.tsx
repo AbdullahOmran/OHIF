@@ -62,20 +62,19 @@ const InvestigationalUseDialog = ({ dialogConfiguration }) => {
       <div className="bg-secondary-dark border-primary-dark flex w-[90%] items-center justify-between rounded-lg border-2 pl-[22px] pr-[22px] pt-[10px] pb-[10px] shadow-lg">
         <div className="flex items-center gap-4">
           <Icon
-            name="illustration-investigational-use"
+            name="loading-theranostics-mark"
             className="h-18 w-18"
           />
           <div className="flex flex-col">
             <div className="text-[19px] text-white">
-              OHIF Viewer is{' '}
-              <span className="text-primary-light">for investigational use only</span>
+              TheraViewer <span className="text-primary-light">User Guide</span>
             </div>
             <div className="text-[13px] text-white">
               <span
                 className="text-primary-active cursor-pointer"
-                onClick={() => window.open('https://ohif.org/', '_blank')}
+                onClick={() => window.open('http://localhost/docs', '_blank')}
               >
-                Learn more about OHIF Viewer
+                Learn more about using TheraViewer
               </span>
             </div>
           </div>
@@ -85,7 +84,7 @@ const InvestigationalUseDialog = ({ dialogConfiguration }) => {
           onClick={handleConfirmAndHide}
           className="bg-primary-main"
         >
-          Confirm and Hide
+          Got It
         </Button>
       </div>
     </div>
