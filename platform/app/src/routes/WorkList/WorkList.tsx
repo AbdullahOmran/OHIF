@@ -93,7 +93,16 @@ function WorkList({
   const sortModifier = sortDirection === 'descending' ? 1 : -1;
   const defaultSortValues =
     shouldUseDefaultSort && canSort ? { sortBy: 'studyDate', sortDirection: 'ascending' } : {};
-  const sortedStudies = studies;
+  //START-CUSTOMIZATION
+  const sortedStudies = studies.filter(study => {
+    const { modalities } = study;
+    const validToOpen = appConfig.loadedModes[0].isValidMode({
+      modalities: modalities.replaceAll('/', '\\'),
+      study,
+    }).valid;
+    return validToOpen;
+  });
+  //END-CUSTOMIZATION
 
   if (canSort) {
     studies.sort((s1, s2) => {
@@ -425,7 +434,9 @@ function WorkList({
                       dataCY={`mode-${mode.routeName}-${studyInstanceUid}`}
                       className={isValidMode ? 'text-[13px]' : 'bg-[#222d44] text-[13px]'}
                     >
-                      {mode.displayName}
+                      {/* START-CUSTOMIZATION */}
+                      Open
+                      {/* END-CUSTOMIZATION */}
                     </Button>
                   </Link>
                 )
