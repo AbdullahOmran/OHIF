@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon/Icon';
+import SwitchButton from '../SwitchButton/SwitchButton';
 
 function LayoutPreset({
   onSelection,
@@ -23,6 +24,7 @@ function LayoutPreset({
         className="group-hover:text-primary-light"
       />
       {title && <div className="font-inter text-sm text-white">{title}</div>}
+      {/* <SwitchButton /> */}
     </div>
   );
 }

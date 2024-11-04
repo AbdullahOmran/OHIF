@@ -183,6 +183,7 @@ function LayoutSelector({
             ref={dropdownRef}
           >
             <div className="bg-secondary-dark flex flex-col gap-2.5 p-2">
+              {/*
               <div className="text-aqua-pale text-xs">Common</div>
 
               <div className="flex gap-4">
@@ -198,8 +199,9 @@ function LayoutSelector({
               </div>
 
               <div className="h-[2px] bg-black"></div>
+          */}
 
-              <div className="text-aqua-pale text-xs">Advanced</div>
+              <div className="text-aqua-pale text-xs">Layout</div>
 
               <div className="flex flex-col gap-2.5">
                 {advancedPresets.map((preset, index) => (

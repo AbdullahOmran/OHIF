@@ -7,10 +7,6 @@ import { mip } from './hps/mip';
 function getHangingProtocolModule() {
   return [
     {
-      name: ptCT.id,
-      protocol: ptCT,
-    },
-    {
       name: mprPt.id,
       protocol: mprPt,
     },

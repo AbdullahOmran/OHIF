@@ -27,7 +27,7 @@ export const mip = {
   id: '@ohif/extension-tmtv.hps.mip',
   locked: true,
   name: 'MIP',
-  icon: 'layout-advanced-mpr',
+  icon: 'layout-advanced-3d-only',
   isPreset: true,
   createdDate: '2021-02-23T19:22:08.894Z',
   modifiedDate: '2022-10-04T19:22:08.894Z',
