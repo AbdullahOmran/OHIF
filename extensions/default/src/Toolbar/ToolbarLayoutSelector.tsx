@@ -69,7 +69,7 @@ const generateAdvancedPresets = ({ servicesManager }: withAppTypes) => {
         return null;
       }
 
-      const areValid = _areSelectorsValid(hp, displaySets, hangingProtocolService);
+      // const areValid = _areSelectorsValid(hp, displaySets, hangingProtocolService);
 
       return {
         icon: hp.icon,
@@ -77,7 +77,7 @@ const generateAdvancedPresets = ({ servicesManager }: withAppTypes) => {
         commandOptions: {
           protocolId: hp.id,
         },
-        disabled: !areValid,
+        // disabled: !areValid,
       };
     })
     .filter(preset => preset !== null);
@@ -138,6 +138,7 @@ function LayoutSelector({
 
   const { customizationService } = servicesManager.services;
   const commonPresets = customizationService.get('commonPresets') || defaultCommonPresets;
+
   const advancedPresets =
     customizationService.get('advancedPresets') || generateAdvancedPresets({ servicesManager });
 

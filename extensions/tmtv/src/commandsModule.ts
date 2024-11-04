@@ -650,7 +650,6 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
         viewport.render();
       });
     },
-    setViewportGridLayout: ({ numRows, numCols, isHangingProtocolLayout = false }) => { },
   };
 
   const definitions = {
@@ -702,9 +701,7 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
     setFusionPTColormap: {
       commandFn: actions.setFusionPTColormap,
     },
-    setViewportGridLayout: {
-      commandFn: actions.setViewportGridLayout,
-    },
+
   };
 
   return {
