@@ -377,7 +377,7 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
         meanValue: segmentationValues.reduce((a, b) => a + b, 0) / voxelCount,
         stdValue: Math.sqrt(
           segmentationValues.reduce((a, b) => a + b * b, 0) / voxelCount -
-            segmentationValues.reduce((a, b) => a + b, 0) / voxelCount ** 2
+          segmentationValues.reduce((a, b) => a + b, 0) / voxelCount ** 2
         ),
         volume: voxelCount * spacing[0] * spacing[1] * spacing[2] * 1e-3,
       };
@@ -650,6 +650,7 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
         viewport.render();
       });
     },
+    setViewportGridLayout: ({ numRows, numCols, isHangingProtocolLayout = false }) => { },
   };
 
   const definitions = {
@@ -700,6 +701,9 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
     },
     setFusionPTColormap: {
       commandFn: actions.setFusionPTColormap,
+    },
+    setViewportGridLayout: {
+      commandFn: actions.setViewportGridLayout,
     },
   };
 

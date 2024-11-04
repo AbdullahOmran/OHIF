@@ -279,6 +279,16 @@ const toolbarButtons = [
       ],
     },
   },
+  {
+    id: 'Layout',
+    uiType: 'ohif.layoutSelector',
+    props: {
+      rows: 3,
+      columns: 4,
+      evaluate: 'evaluate.action',
+      commands: 'setViewportGridLayout',
+    },
+  },
 ];
 
 export default toolbarButtons;

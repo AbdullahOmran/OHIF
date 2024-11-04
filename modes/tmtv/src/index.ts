@@ -94,6 +94,7 @@ function modeFactory({ modeConfiguration }) {
         'MeasurementTools',
         'Zoom',
         'WindowLevel',
+        'Layout',
         'Crosshairs',
         'Pan',
       ]);
