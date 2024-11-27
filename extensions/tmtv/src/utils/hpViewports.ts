@@ -290,7 +290,7 @@ const fusionAXIAL = {
       id: 'ptDisplaySet',
       options: {
         colormap: {
-          name: 'hsv',
+          name: 'red_hot',
           opacity: [
             { value: 0, opacity: 0 },
             { value: 0.1, opacity: 0.9 },
@@ -356,7 +356,7 @@ const fusionSAGITTAL = {
       id: 'ptDisplaySet',
       options: {
         colormap: {
-          name: 'hsv',
+          name: 'red_hot',
           opacity: [
             { value: 0, opacity: 0 },
             { value: 0.1, opacity: 0.9 },
@@ -422,7 +422,7 @@ const fusionCORONAL = {
       id: 'ptDisplaySet',
       options: {
         colormap: {
-          name: 'hsv',
+          name: 'red_hot',
           opacity: [
             { value: 0, opacity: 0 },
             { value: 0.1, opacity: 0.9 },

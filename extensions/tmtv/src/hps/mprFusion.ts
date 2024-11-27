@@ -16,14 +16,20 @@ const stage1 = {
   viewportStructure: {
     layoutType: 'grid',
     properties: {
-      rows: 1,
+      rows: 2,
       columns: 3,
       layoutOptions: [
         {
           x: 0,
           y: 0,
           width: 1 / 3,
-          height: 1,
+          height: 1 / 2,
+        },
+        {
+          x: 0,
+          y: 1 / 2,
+          width: 1 / 3,
+          height: 1 / 2,
         },
         {
           x: 1 / 3,
@@ -40,14 +46,14 @@ const stage1 = {
       ],
     },
   },
-  viewports: [fusionAXIAL, fusionSAGITTAL, fusionCORONAL],
+  viewports: [fusionAXIAL, mipSAGITTAL, fusionCORONAL, fusionSAGITTAL],
   createdDate: '2021-02-23T18:32:42.850Z',
 };
 
 export const mprFusion = {
   id: '@ohif/extension-tmtv.hps.mprFusion',
   locked: true,
-  name: 'MPR Fusion',
+  name: 'Fusion',
   icon: 'layout-advanced-mpr',
   isPreset: true,
   createdDate: '2021-02-23T19:22:08.894Z',
