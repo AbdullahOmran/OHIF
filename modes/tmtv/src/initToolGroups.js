@@ -21,6 +21,10 @@ function _initToolGroups(
         bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },
       {
+        toolName: '3d view',
+        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
+      },
+      {
         toolName: toolNames.Pan,
         bindings: [{ mouseButton: Enums.MouseBindings.Auxiliary }],
       },

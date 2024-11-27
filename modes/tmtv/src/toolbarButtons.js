@@ -10,6 +10,16 @@ const setToolActiveToolbar = {
 
 const toolbarButtons = [
   {
+    id: '3dView',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'tool-3d-rotate',
+      label: '3d view',
+      commands: setToolActiveToolbar,
+      evaluate: 'evaluate.cornerstoneTool',
+    },
+  },
+  {
     id: 'MeasurementTools',
     uiType: 'ohif.splitButton',
     props: {
