@@ -10,6 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 // ~~ Directories
 const SRC_DIR = path.join(__dirname, '../src');
 const DIST_DIR = path.join(__dirname, '../dist');
@@ -134,6 +135,23 @@ module.exports = (env, argv) => {
         // Cache large files for the manifests to avoid warning messages
         maximumFileSizeToCacheInBytes: 1024 * 1024 * 50,
       }),
+      new webpack.ProgressPlugin(),
+      {
+        apply: compiler => {
+          compiler.hooks.done.tap('RebuildDonePlugin', stats => {
+            if (stats.hasErrors()) {
+              console.error('Build completed with errors!');
+            } else {
+              console.log('REBUILTTTTTTT');
+            }
+          });
+        },
+      },
+      new WebpackNotifierPlugin({
+        title: 'OHIF Build',
+        alwaysNotify: true,
+      }),
+      new webpack.HotModuleReplacementPlugin(),
     ],
     // https://webpack.js.org/configuration/dev-server/
     devServer: {
@@ -142,6 +160,7 @@ module.exports = (env, argv) => {
       // compress: true,
       // http2: true,
       // https: true,
+      hot: true,
       open: true,
       port: 3000,
       client: {
