@@ -10,6 +10,16 @@ const setToolActiveToolbar = {
 
 const toolbarButtons = [
   {
+    id: '3dView',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'tool-3d-rotate',
+      label: '3d view',
+      commands: setToolActiveToolbar,
+      evaluate: 'evaluate.cornerstoneTool',
+    },
+  },
+  {
     id: 'MeasurementTools',
     uiType: 'ohif.splitButton',
     props: {
@@ -27,6 +37,14 @@ const toolbarButtons = [
         tooltip: 'More Measure Tools',
       },
       items: [
+        ToolbarService.createButton({
+          id: 'Length',
+          icon: 'tool-length',
+          label: 'Length',
+          tooltip: 'Length Tool',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
         ToolbarService.createButton({
           id: 'Bidirectional',
           icon: 'tool-bidirectional',
@@ -48,6 +66,55 @@ const toolbarButtons = [
           icon: 'tool-ellipse',
           label: 'Ellipse',
           tooltip: 'Ellipse Tool',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
+
+        ToolbarService.createButton({
+          id: 'CircleROI',
+          icon: 'tool-circle',
+          label: 'Circle',
+          tooltip: 'Circle Tool',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
+        ToolbarService.createButton({
+          id: 'RectangleROI',
+          icon: 'tool-rectangle',
+          label: 'Rectangle',
+          tooltip: 'Rectangle',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
+        ToolbarService.createButton({
+          id: 'SplineROI',
+          icon: 'icon-tool-spline-roi',
+          label: 'Spline ROI',
+          tooltip: 'Spline ROI',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
+        ToolbarService.createButton({
+          id: 'LivewireContour',
+          icon: 'icon-tool-livewire',
+          label: 'Livewire tool',
+          tooltip: 'Livewire tool',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
+        ToolbarService.createButton({
+          id: 'Angle',
+          icon: 'tool-angle',
+          label: 'Angle',
+          tooltip: 'Angle',
+          commands: setToolActiveToolbar,
+          evaluate: 'evaluate.cornerstoneTool',
+        }),
+        ToolbarService.createButton({
+          id: 'PlanarFreehandROI',
+          icon: 'icon-tool-freehand-roi',
+          label: 'Freehand ROI',
+          tooltip: 'Freehand ROI',
           commands: setToolActiveToolbar,
           evaluate: 'evaluate.cornerstoneTool',
         }),
@@ -277,6 +344,16 @@ const toolbarButtons = [
           ],
         },
       ],
+    },
+  },
+  {
+    id: 'Layout',
+    uiType: 'ohif.layoutSelector',
+    props: {
+      rows: 3,
+      columns: 4,
+      evaluate: 'evaluate.action',
+      commands: 'setViewportGridLayout',
     },
   },
 ];

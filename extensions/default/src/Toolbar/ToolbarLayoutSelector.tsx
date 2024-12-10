@@ -69,7 +69,7 @@ const generateAdvancedPresets = ({ servicesManager }: withAppTypes) => {
         return null;
       }
 
-      const areValid = _areSelectorsValid(hp, displaySets, hangingProtocolService);
+      // const areValid = _areSelectorsValid(hp, displaySets, hangingProtocolService);
 
       return {
         icon: hp.icon,
@@ -77,7 +77,7 @@ const generateAdvancedPresets = ({ servicesManager }: withAppTypes) => {
         commandOptions: {
           protocolId: hp.id,
         },
-        disabled: !areValid,
+        // disabled: !areValid,
       };
     })
     .filter(preset => preset !== null);
@@ -138,6 +138,7 @@ function LayoutSelector({
 
   const { customizationService } = servicesManager.services;
   const commonPresets = customizationService.get('commonPresets') || defaultCommonPresets;
+
   const advancedPresets =
     customizationService.get('advancedPresets') || generateAdvancedPresets({ servicesManager });
 
@@ -182,6 +183,7 @@ function LayoutSelector({
             ref={dropdownRef}
           >
             <div className="bg-secondary-dark flex flex-col gap-2.5 p-2">
+              {/*
               <div className="text-aqua-pale text-xs">Common</div>
 
               <div className="flex gap-4">
@@ -197,8 +199,9 @@ function LayoutSelector({
               </div>
 
               <div className="h-[2px] bg-black"></div>
+          */}
 
-              <div className="text-aqua-pale text-xs">Advanced</div>
+              <div className="text-aqua-pale text-xs">Layout</div>
 
               <div className="flex flex-col gap-2.5">
                 {advancedPresets.map((preset, index) => (
@@ -215,7 +218,7 @@ function LayoutSelector({
               </div>
             </div>
 
-            <div className="bg-primary-dark flex flex-col gap-2.5 border-l-2 border-solid border-black  p-2">
+            {/* <div className="bg-primary-dark flex flex-col gap-2.5 border-l-2 border-solid border-black  p-2">
               <div className="text-aqua-pale text-xs">Custom</div>
               <DropdownContent
                 rows={rows}
@@ -225,7 +228,7 @@ function LayoutSelector({
               <p className="text-aqua-pale text-xs leading-tight">
                 Hover to select <br></br>rows and columns <br></br> Click to apply
               </p>
-            </div>
+            </div> */}
           </div>
         )
       }

@@ -17,65 +17,62 @@ module.exports = {
       inter: ['Inter', 'sans-serif'],
     },
     colors: {
-      overlay: 'rgba(0, 50, 0, 0.7)', // Calming, translucent green overlay
+      overlay: 'rgba(0, 0, 0, 0.8)',
       transparent: 'transparent',
-      black: '#101f10', // Dark forest green for a softer black
-      white: '#ffffff',
+      black: '#000',
+      white: '#fff',
       initial: 'initial',
       inherit: 'inherit',
 
-      indigo: {
-        dark: '#203a20', // Deep, muted green for indigo areas
-      },
       aqua: {
-        pale: '#a8d4ba', // Soft, pastel green for hints of freshness
+        pale: '#7bb2ce',
       },
 
       primary: {
-        light: '#8fd89a', // Light mint green for soft accents
-        main: '#45b86b', // Balanced green for main brand color
-        dark: '#2c7d4a', // Dark forest green for deeper contrasts
-        active: '#5ece77', // Vibrant green for active states
+        light: '#5acce6',
+        main: '#0944b3',
+        dark: '#090c29',
+        active: '#348cfd',
       },
 
       inputfield: {
-        main: '#3d7d5f', // Muted teal-green for main input fields
-        disabled: '#284d3c', // Dark greenish grey for disabled fields
-        focus: '#8fd89a', // Bright mint green to indicate focus
-        placeholder: '#4a5d4a', // Soft greenish grey for placeholders
+        main: '#3a3f99',
+        disabled: '#2b166b',
+        focus: '#5acce6',
+        placeholder: '#39383f',
       },
 
       secondary: {
-        light: '#4e9668', // Gentle green for secondary elements
-        main: '#3a7251', // Deeper green for secondary actions
-        dark: '#2a5237', // Dark green for additional contrast
-        active: '#66a375', // Slightly vibrant green for active secondary elements
+        light: '#3a3f99',
+        main: '#2b166b',
+        dark: '#041c4a',
+        active: '#1f1f27',
       },
 
       common: {
-        bright: '#e5f5ea', // Very light green for bright accents
-        light: '#c3dec9', // Soft green-grey for gentle contrasts
-        main: '#ffffff',
-        dark: '#7b8e7b', // Subtle greenish grey for text and icons
-        active: '#2e6d4e', // Dark, rich green for common active states
+        bright: '#e1e1e1',
+        light: '#a19fad',
+        main: '#fff',
+        dark: '#726f7e',
+        active: '#2c3074',
       },
 
       customgreen: {
-        100: '#4cda89', // Soft green for highlights
-        200: '#3cc77a', // Medium green for accents
+        100: '#05D97C',
+        200: '#0FD97C',
       },
 
       customblue: {
-        10: '#e0f2e7', // Lightest green-blue for background highlights
-        20: '#b7e0c7', // Soft green-blue for larger elements
-        30: '#93cda7', // Medium green-blue for prominent elements
-        40: '#6cbf8f', // Fresh green-blue for additional accents
-        50: '#4ba571', // Main green-blue for the brand feel
-        80: '#2f7f54', // Darker green for emphasis
-        100: '#8dd1a6', // Muted mint green for decorative elements
-        200: '#5fb97b', // Accent green for pop
-        300: '#355d46', // Muted dark green for high contrast
-        400: '#b0cbb0', // Soft, greenish-grey for background contrasts
+        10: '#0A163F',
+        20: '#0B1F54',
+        30: '#09286e',
+        40: '#0E307F',
+        50: '#0F3A94',
+        80: '#1454D4',
+        100: '#c4fdff',
+        200: '#38daff',
+        300: '#1D204D',
+        400: '#90A0C1',
       },
 
       customgray: {

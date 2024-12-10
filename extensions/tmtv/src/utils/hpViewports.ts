@@ -290,11 +290,17 @@ const fusionAXIAL = {
       id: 'ptDisplaySet',
       options: {
         colormap: {
-          name: 'hsv',
+          name: 'red_hot',
           opacity: [
-            { value: 0, opacity: 0 },
-            { value: 0.1, opacity: 0.9 },
-            { value: 1, opacity: 0.95 },
+            // { value: 0, opacity: 0 },
+            // { value: 0.1, opacity: 0.9 },
+            // { value: 1, opacity: 0.95 },
+            { value: 0, opacity: 0 }, // Fully transparent at 0 intensity
+            { value: 0.05, opacity: 0.3 }, // Slight visibility for low-intensity tissues
+            { value: 0.2, opacity: 0.7 }, // Medium visibility for soft tissues
+            { value: 0.5, opacity: 0.85 }, // Higher visibility for denser tissues
+            { value: 0.75, opacity: 0.95 }, // Near maximum visibility for bones
+            { value: 1, opacity: 1 }, // Fully opaque for high-density structures
           ],
         },
         voi: {
@@ -356,11 +362,17 @@ const fusionSAGITTAL = {
       id: 'ptDisplaySet',
       options: {
         colormap: {
-          name: 'hsv',
+          name: 'red_hot',
           opacity: [
-            { value: 0, opacity: 0 },
-            { value: 0.1, opacity: 0.9 },
-            { value: 1, opacity: 0.95 },
+            // { value: 0, opacity: 0 },
+            // { value: 0.1, opacity: 0.9 },
+            // { value: 1, opacity: 0.95 },
+            { value: 0, opacity: 0 }, // Fully transparent at 0 intensity
+            { value: 0.05, opacity: 0.3 }, // Slight visibility for low-intensity tissues
+            { value: 0.2, opacity: 0.7 }, // Medium visibility for soft tissues
+            { value: 0.5, opacity: 0.85 }, // Higher visibility for denser tissues
+            { value: 0.75, opacity: 0.95 }, // Near maximum visibility for bones
+            { value: 1, opacity: 1 }, // Fully opaque for high-density structures
           ],
         },
         voi: {
@@ -422,11 +434,19 @@ const fusionCORONAL = {
       id: 'ptDisplaySet',
       options: {
         colormap: {
-          name: 'hsv',
+          name: 'red_hot',
           opacity: [
-            { value: 0, opacity: 0 },
-            { value: 0.1, opacity: 0.9 },
-            { value: 1, opacity: 0.95 },
+            // { value: 0, opacity: 0 },
+            // { value: 0.1, opacity: 0.9 },
+            // { value: 1, opacity: 0.95 },
+            //////////////////////////////////////////////////////////////////////
+            { value: 0, opacity: 0 }, // Fully transparent at 0 intensity
+            { value: 0.05, opacity: 0.3 }, // Slight visibility for low-intensity tissues
+            { value: 0.2, opacity: 0.7 }, // Medium visibility for soft tissues
+            { value: 0.5, opacity: 0.85 }, // Higher visibility for denser tissues
+            { value: 0.75, opacity: 0.95 }, // Near maximum visibility for bones
+            { value: 1, opacity: 1 }, // Fully opaque for high-density structures
+            //////////////////////////////////////////////////////////////////////
           ],
         },
         voi: {
