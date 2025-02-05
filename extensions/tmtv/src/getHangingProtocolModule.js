@@ -3,9 +3,14 @@ import { mprPt } from './hps/mprPt';
 import { mprCt } from './hps/mprCt';
 import { mprFusion } from './hps/mprFusion';
 import { mip } from './hps/mip';
+import { defaultProtocol } from './hps/default';
 
 function getHangingProtocolModule() {
   return [
+    {
+      name: defaultProtocol.id,
+      protocol: defaultProtocol,
+    },
     {
       name: mprPt.id,
       protocol: mprPt,
