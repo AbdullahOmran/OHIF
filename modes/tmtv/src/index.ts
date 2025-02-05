@@ -18,6 +18,7 @@ const ohif = {
 const cs3d = {
   viewport: '@ohif/extension-cornerstone.viewportModule.cornerstone',
   segPanel: '@ohif/extension-cornerstone-dicom-seg.panelModule.panelSegmentation',
+  //segPanel: '@ohif/extension-cornerstone-dicom-seg.panelModule.panelSegmentationWithTools',
 };
 
 const tmtv = {
@@ -25,6 +26,9 @@ const tmtv = {
   petSUV: '@ohif/extension-tmtv.panelModule.petSUV',
   toolbox: '@ohif/extension-tmtv.panelModule.tmtvBox',
   export: '@ohif/extension-tmtv.panelModule.tmtvExport',
+
+  sopClassHandler: '@ohif/extension-cornerstone-dicom-seg.sopClassHandlerModule.dicom-seg',
+  viewport: '@ohif/extension-cornerstone-dicom-seg.viewportModule.dicom-seg',
 };
 
 const extensionDependencies = {
@@ -208,6 +212,10 @@ function modeFactory({ modeConfiguration }) {
                   namespace: cs3d.viewport,
                   displaySetsToDisplay: [ohif.sopClassHandler],
                 },
+                {
+                  namespace: tmtv.viewport,
+                  displaySetsToDisplay: [tmtv.sopClassHandler],
+                },
               ],
             },
           };
@@ -216,7 +224,7 @@ function modeFactory({ modeConfiguration }) {
     ],
     extensions: extensionDependencies,
     hangingProtocol: tmtv.hangingProtocol,
-    sopClassHandlers: [ohif.sopClassHandler],
+    sopClassHandlers: [ohif.sopClassHandler, tmtv.sopClassHandler],
     hotkeys: [...hotkeys.defaults.hotkeyBindings],
     ...modeConfiguration,
   };
