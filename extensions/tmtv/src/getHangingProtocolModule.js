@@ -3,7 +3,7 @@ import { mprPt } from './hps/mprPt';
 import { mprCt } from './hps/mprCt';
 import { mprFusion } from './hps/mprFusion';
 import { mip } from './hps/mip';
-import { defaultProtocol } from './hps/default';
+import { defaultProtocol } from './hps/defaultProtocol';
 
 function getHangingProtocolModule() {
   return [

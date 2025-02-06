@@ -22,6 +22,7 @@ const cs3d = {
 };
 
 const tmtv = {
+  // hangingProtocol: '@ohif/extension-tmtv.hps.defaultProtocol',
   hangingProtocol: '@ohif/extension-tmtv.hps.mprFusion',
   petSUV: '@ohif/extension-tmtv.panelModule.petSUV',
   toolbox: '@ohif/extension-tmtv.panelModule.tmtvBox',

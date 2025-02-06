@@ -1,5 +1,5 @@
 export const defaultProtocol = {
-  id: 'default',
+  id: '@ohif/extension-tmtv.hps.defaultProtocol',
   locked: true,
   // Don't store this hanging protocol as it applies to the currently active
   // display set by default
