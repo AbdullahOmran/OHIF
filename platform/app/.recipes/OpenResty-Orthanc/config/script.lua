@@ -7,7 +7,6 @@ function OnStableStudy(studyId, tags, metadata, origin)
     local examination = tags['StudyDescription']
     local studyDate = tags['StudyDate']
     local modality = tags['Modality']
-    
     local patientMainDicomTags = studyData['PatientMainDicomTags']
     local patientName = patientMainDicomTags['PatientName']
     local hospitalNumber = patientMainDicomTags['PatientID']
@@ -17,6 +16,7 @@ function OnStableStudy(studyId, tags, metadata, origin)
     local payload = {
         ["Data"] = {
             ["AccessionNumber"] = accessionNumber,
+            ['StudyInstanceUID'] = studyId,
             ["Examination"] = examination,
             ["StudyDate"] = studyDate,
             ["Modality"] = modality,

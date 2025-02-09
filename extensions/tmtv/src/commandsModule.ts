@@ -109,6 +109,32 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
 
       return ptDisplaySet;
     },
+    getMatchingCTDisplaySet: ({ viewportMatchDetails }) => {
+      // Todo: this is assuming that the hanging protocol has successfully matched
+      // the correct PT. For future, we should have a way to filter out the PTs
+      // that are in the viewer layout (but then we have the problem of the attenuation
+      // corrected PT vs the non-attenuation correct PT)
+
+      let ctDisplaySet = null;
+      for (const [viewportId, viewportDetails] of viewportMatchDetails) {
+        const { displaySetsInfo } = viewportDetails;
+        const displaySets = displaySetsInfo.map(({ displaySetInstanceUID }) =>
+          displaySetService.getDisplaySetByUID(displaySetInstanceUID)
+        );
+
+        if (!displaySets || displaySets.length === 0) {
+          continue;
+        }
+
+        ctDisplaySet = displaySets.find(displaySet => displaySet.Modality === 'CT');
+
+        if (ctDisplaySet) {
+          break;
+        }
+      }
+
+      return ctDisplaySet;
+    },
     getPTMetadata: ({ ptDisplaySet }) => {
       const dataSource = extensionManager.getDataSources()[0];
       const imageIds = dataSource.getImageIdsForDisplaySet(ptDisplaySet);
@@ -146,16 +172,21 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
       const ptDisplaySet = actions.getMatchingPTDisplaySet({
         viewportMatchDetails,
       });
+      const ctDisplaySet = actions.getMatchingCTDisplaySet({
+        viewportMatchDetails,
+      });
 
-      if (!ptDisplaySet) {
-        uiNotificationService.error('No matching PT display set found');
+      if (!ptDisplaySet || !ctDisplaySet) {
+        uiNotificationService.error('No matching PT or CT display set found');
         return;
       }
 
       const currentSegmentations = segmentationService.getSegmentations();
-
+      const displaySetInstanceUID = ptDisplaySet
+        ? ptDisplaySet.displaySetInstanceUID
+        : ctDisplaySet.displaySetInstanceUID;
       const segmentationId = await segmentationService.createSegmentationForDisplaySet(
-        ptDisplaySet.displaySetInstanceUID,
+        displaySetInstanceUID,
         { label: `Segmentation ${currentSegmentations.length + 1}` }
       );
 
@@ -662,6 +693,9 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
     getMatchingPTDisplaySet: {
       commandFn: actions.getMatchingPTDisplaySet,
     },
+    getMatchingCTDisplaySet: {
+      commandFn: actions.getMatchingCTDisplaySet,
+    },
     getPTMetadata: {
       commandFn: actions.getPTMetadata,
     },
@@ -701,7 +735,6 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
     setFusionPTColormap: {
       commandFn: actions.setFusionPTColormap,
     },
-
   };
 
   return {

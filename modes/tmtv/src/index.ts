@@ -18,7 +18,7 @@ const ohif = {
 const cs3d = {
   viewport: '@ohif/extension-cornerstone.viewportModule.cornerstone',
   segPanel: '@ohif/extension-cornerstone-dicom-seg.panelModule.panelSegmentation',
-  //segPanel: '@ohif/extension-cornerstone-dicom-seg.panelModule.panelSegmentationWithTools',
+  // segPanel: '@ohif/extension-cornerstone-dicom-seg.panelModule.panelSegmentationWithTools',
 };
 
 const tmtv = {

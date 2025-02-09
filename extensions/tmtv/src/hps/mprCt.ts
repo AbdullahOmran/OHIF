@@ -78,12 +78,17 @@ export const mprCt = {
   displaySetSelectors: {
     ctDisplaySet: {
       seriesMatchingRules: [
+        // {
+        //   attribute: 'Modality',
+        //   constraint: {
+        //     contains: ['CT', 'SEG'],
+        //   },
+        //   required: true,
+        // },
         {
           attribute: 'Modality',
           constraint: {
-            equals: {
-              value: 'CT',
-            },
+            contains: ['CT', 'SEG'],
           },
           required: true,
         },
@@ -115,7 +120,7 @@ export const mprCt = {
         {
           attribute: 'Modality',
           constraint: {
-            equals: 'PT',
+            contains: ['PT', 'SEG'],
           },
           required: true,
         },

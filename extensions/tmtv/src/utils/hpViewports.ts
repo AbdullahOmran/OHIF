@@ -94,6 +94,7 @@ const ctCORONAL = {
   ],
 };
 
+
 const ptAXIAL = {
   viewportOptions: {
     viewportId: 'ptAXIAL',

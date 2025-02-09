@@ -81,9 +81,7 @@ export const mprPt = {
         {
           attribute: 'Modality',
           constraint: {
-            equals: {
-              value: 'CT',
-            },
+            contains: ['CT', 'SEG'],
           },
           required: true,
         },
@@ -115,10 +113,17 @@ export const mprPt = {
         {
           attribute: 'Modality',
           constraint: {
-            equals: 'PT',
+            contains: ['PT', 'SEG'],
           },
           required: true,
         },
+        // {
+        //   attribute: 'Modality',
+        //   constraint: {
+        //     equals: 'PT',
+        //   },
+        //   required: true,
+        // },
         {
           attribute: 'isReconstructable',
           constraint: {

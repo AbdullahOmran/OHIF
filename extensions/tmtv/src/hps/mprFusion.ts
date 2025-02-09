@@ -87,12 +87,11 @@ export const mprFusion = {
         {
           attribute: 'Modality',
           constraint: {
-            equals: {
-              value: 'CT',
-            },
+            contains: ['CT', 'SEG'],
           },
           required: true,
         },
+
         {
           attribute: 'isReconstructable',
           constraint: {
@@ -121,10 +120,11 @@ export const mprFusion = {
         {
           attribute: 'Modality',
           constraint: {
-            equals: 'PT',
+            contains: ['PT', 'SEG'],
           },
           required: true,
         },
+
         {
           attribute: 'isReconstructable',
           constraint: {
