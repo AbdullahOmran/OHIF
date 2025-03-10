@@ -10,6 +10,7 @@ import createAndDownloadTMTVReport from './utils/createAndDownloadTMTVReport';
 import dicomRTAnnotationExport from './utils/dicomRTAnnotationExport/RTStructureSet';
 
 import { getWebWorkerManager } from '@cornerstonejs/core';
+import { DisplaySet } from 'platform/core/src/types';
 
 const metadataProvider = classes.MetadataProvider;
 const RECTANGLE_ROI_THRESHOLD_MANUAL_TOOL_IDS = [
@@ -168,7 +169,6 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
       // Create a segmentation of the same resolution as the source data
       // using volumeLoader.createAndCacheDerivedVolume.
       const { viewportMatchDetails } = hangingProtocolService.getMatchDetails();
-
       const ptDisplaySet = actions.getMatchingPTDisplaySet({
         viewportMatchDetails,
       });
@@ -176,11 +176,40 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
         viewportMatchDetails,
       });
 
-      if (!ptDisplaySet || !ctDisplaySet) {
+      // const segDisplaySets: DisplaySet[] = displaySetService.getDisplaySetsBy(
+      //   (ds: DisplaySet) => ds.Modality === 'SEG'
+      // );
+      // console.log(viewportMatchDetails);
+      // console.log(ptDisplaySet);
+      // console.log(segDisplaySets[0]);
+      // if (segDisplaySets && segDisplaySets.length > 0) {
+      //   const segDisplaySet = segDisplaySets[0];
+      //   const activeViewportId = viewportGridService.getActiveViewportId();
+
+      //   ////////////////////////////////////
+      //   console.log(segDisplaySet.referencedDisplaySetInstanceUID);
+      //   const referencedDisplaySet = ctDisplaySet;
+      //   // segDisplaySet.referencedDisplaySetInstanceUID = referencedDisplaySet.displaySetInstanceUID;
+      //   // segDisplaySet.referencedSeriesInstanceUID = referencedDisplaySet.SeriesInstanceUID;
+
+      //   // Todo: this needs to be able to work with other reference volumes (other than streaming) such as nifti, etc.
+      //   // segDisplaySet.referencedVolumeURI = referencedDisplaySet.displaySetInstanceUID;
+      //   // const referencedVolumeId = `cornerstoneStreamingImageVolume:${segDisplaySet.referencedVolumeURI}`;
+      //   // segDisplaySet.referencedVolumeId = referencedVolumeId;
+
+      //   console.log(displaySetService.addDisplaySets([segDisplaySet])[0]);
+      //   ////////////////////////////////////
+
+      //   viewportGridService.setDisplaySetsForViewport({
+      //     viewportId: activeViewportId,
+      //     displaySetInstanceUIDs: [segDisplaySet.displaySetInstanceUID],
+      //   });
+      // }
+
+      if (!ptDisplaySet && !ctDisplaySet) {
         uiNotificationService.error('No matching PT or CT display set found');
         return;
       }
-
       const currentSegmentations = segmentationService.getSegmentations();
       const displaySetInstanceUID = ptDisplaySet
         ? ptDisplaySet.displaySetInstanceUID

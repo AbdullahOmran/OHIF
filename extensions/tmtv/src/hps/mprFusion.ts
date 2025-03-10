@@ -87,7 +87,7 @@ export const mprFusion = {
         {
           attribute: 'Modality',
           constraint: {
-            contains: ['CT', 'SEG'],
+            equals: 'CT',
           },
           required: true,
         },
@@ -120,7 +120,7 @@ export const mprFusion = {
         {
           attribute: 'Modality',
           constraint: {
-            contains: ['PT', 'SEG'],
+            equals: 'PT',
           },
           required: true,
         },

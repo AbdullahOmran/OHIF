@@ -1,3 +1,4 @@
+import { equals } from '@kitware/vtk.js/Common/DataModel/BoundingBox';
 import {
   ctAXIAL,
   ctCORONAL,
@@ -88,7 +89,7 @@ export const mprCt = {
         {
           attribute: 'Modality',
           constraint: {
-            contains: ['CT', 'SEG'],
+            equals: 'CT',
           },
           required: true,
         },
@@ -120,7 +121,7 @@ export const mprCt = {
         {
           attribute: 'Modality',
           constraint: {
-            contains: ['PT', 'SEG'],
+            equals: 'PT',
           },
           required: true,
         },

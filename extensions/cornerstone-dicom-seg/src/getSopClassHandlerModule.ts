@@ -188,7 +188,6 @@ async function _loadSegments({
     metaData,
     { skipOverlapping, tolerance, eventTarget, triggerEvent }
   );
-
   let usedRecommendedDisplayCIELabValue = true;
   results.segMetadata.data.forEach((data, i) => {
     if (i > 0) {
