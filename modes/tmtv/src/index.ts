@@ -90,6 +90,8 @@ function modeFactory({ modeConfiguration }) {
             toolGroupService,
             displaySetService
           );
+
+          commandsManager.run('segmentProstate');
         }
       );
 

@@ -176,36 +176,6 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
         viewportMatchDetails,
       });
 
-      // const segDisplaySets: DisplaySet[] = displaySetService.getDisplaySetsBy(
-      //   (ds: DisplaySet) => ds.Modality === 'SEG'
-      // );
-      // console.log(viewportMatchDetails);
-      // console.log(ptDisplaySet);
-      // console.log(segDisplaySets[0]);
-      // if (segDisplaySets && segDisplaySets.length > 0) {
-      //   const segDisplaySet = segDisplaySets[0];
-      //   const activeViewportId = viewportGridService.getActiveViewportId();
-
-      //   ////////////////////////////////////
-      //   console.log(segDisplaySet.referencedDisplaySetInstanceUID);
-      //   const referencedDisplaySet = ctDisplaySet;
-      //   // segDisplaySet.referencedDisplaySetInstanceUID = referencedDisplaySet.displaySetInstanceUID;
-      //   // segDisplaySet.referencedSeriesInstanceUID = referencedDisplaySet.SeriesInstanceUID;
-
-      //   // Todo: this needs to be able to work with other reference volumes (other than streaming) such as nifti, etc.
-      //   // segDisplaySet.referencedVolumeURI = referencedDisplaySet.displaySetInstanceUID;
-      //   // const referencedVolumeId = `cornerstoneStreamingImageVolume:${segDisplaySet.referencedVolumeURI}`;
-      //   // segDisplaySet.referencedVolumeId = referencedVolumeId;
-
-      //   console.log(displaySetService.addDisplaySets([segDisplaySet])[0]);
-      //   ////////////////////////////////////
-
-      //   viewportGridService.setDisplaySetsForViewport({
-      //     viewportId: activeViewportId,
-      //     displaySetInstanceUIDs: [segDisplaySet.displaySetInstanceUID],
-      //   });
-      // }
-
       if (!ptDisplaySet && !ctDisplaySet) {
         uiNotificationService.error('No matching PT or CT display set found');
         return;
@@ -218,7 +188,99 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
         displaySetInstanceUID,
         { label: `Segmentation ${currentSegmentations.length + 1}` }
       );
+      // Add Segmentation to all toolGroupIds in the viewer
+      const toolGroupIds = _getMatchedViewportsToolGroupIds();
+      const representationType = LABELMAP;
 
+      for (const toolGroupId of toolGroupIds) {
+        const hydrateSegmentation = true;
+        await segmentationService.addSegmentationRepresentationToToolGroup(
+          toolGroupId,
+          segmentationId,
+          hydrateSegmentation,
+          representationType
+        );
+
+        segmentationService.setActiveSegmentationForToolGroup(segmentationId, toolGroupId);
+      }
+
+      segmentationService.addSegment(segmentationId, {
+        segmentIndex: 1,
+        properties: {
+          label: 'Segment 1',
+        },
+      });
+      return segmentationId;
+    },
+    segmentProstate: async ({ label }) => {
+      const currentSegmentations = segmentationService.getSegmentations();
+      const segmentedProstate = currentSegmentations.filter(seg => seg.id === 'prostate');
+      if (segmentedProstate.length > 0) {
+        return;
+      }
+      // Create a segmentation of the same resolution as the source data
+      // using volumeLoader.createAndCacheDerivedVolume.
+      const { viewportMatchDetails } = hangingProtocolService.getMatchDetails();
+
+      const ctDisplaySet = actions.getMatchingCTDisplaySet({
+        viewportMatchDetails,
+      });
+
+      if (!ctDisplaySet) {
+        uiNotificationService.error('No matching CT display set found');
+        return;
+      }
+
+      const segmentationId = await segmentationService.createSegmentationForDisplaySet(
+        ctDisplaySet.displaySetInstanceUID,
+        {
+          label: 'Segmented Prostate',
+          segmentationId: 'prostate',
+        }
+      );
+      ////////////////////////////////////////////////////////
+
+      // Fetch segmentation data from backend
+      const fetchSegmentationData = async () => {
+        try {
+          const response = await fetch('http://localhost:3001/api/get-segmentation/');
+          if (!response.ok) {
+            throw new Error(`Failed to fetch segmentation data: ${response.statusText}`);
+          }
+          const arrayBuffer = await response.arrayBuffer();
+          return new Uint8Array(arrayBuffer); // Convert to Uint8Array for fast processing
+        } catch (error) {
+          console.error('Error fetching segmentation data:', error);
+          return null;
+        }
+      };
+
+      // Update segmentation voxels efficiently
+      const updateSegmentation = async segmentationId => {
+        const segmentationArray: Uint8Array = await fetchSegmentationData();
+        if (!segmentationArray) {
+          return;
+        }
+
+        const labelmapVolume = cs.cache.getVolume(segmentationId);
+        const { imageData } = labelmapVolume;
+
+        const segmentationData = imageData.getPointData().getScalars();
+        const scalarArray = segmentationData.getData(); // Get underlying data array
+
+        // Update voxel values based on the fetched segmentation data
+
+        scalarArray.set(segmentationArray);
+
+        // Mark scalars as modified to ensure updates in rendering
+        segmentationData.modified();
+        imageData.modified();
+      };
+
+      // Call function with a valid segmentationId
+      await updateSegmentation(segmentationId);
+
+      /////////////////////////////////////////////////////////
       // Add Segmentation to all toolGroupIds in the viewer
       const toolGroupIds = _getMatchedViewportsToolGroupIds();
       const representationType = LABELMAP;
@@ -763,6 +825,9 @@ const commandsModule = ({ servicesManager, commandsManager, extensionManager }: 
     },
     setFusionPTColormap: {
       commandFn: actions.setFusionPTColormap,
+    },
+    segmentProstate: {
+      commandFn: actions.segmentProstate,
     },
   };
 
